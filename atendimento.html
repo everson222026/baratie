@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baratie Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #E2E4E9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .chat-card {
+            width: 100%;
+            max-width: 600px;
+            height: 90vh;
+            background-color: #E2E4E9;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #632617;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #FFFFFF;
+        }
+
+        .header-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo {
+            width: 40px;
+            height: 40px;
+            background-color: #E5A93C;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-logo svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        .header-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .header-options {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .message-row.bot {
+            justify-content: flex-start;
+        }
+
+        .message-row.user {
+            justify-content: flex-end;
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .avatar.bot {
+            background-color: #632617;
+            border: 2px solid #E5A93C;
+        }
+
+        .avatar.user {
+            background-color: #4A3B32;
+            background-image: url('https://api.dicebear.com/7.x/bottts/svg?seed=Gin');
+        }
+
+        .bubble-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            max-width: 70%;
+        }
+
+        .bubble {
+            padding: 12px 16px;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .bot .bubble {
+            background-color: #F3F3F3;
+            color: #1A1A1A;
+            border: 1px solid #D1C4C0;
+            border-radius: 4px 16px 16px 4px;
+        }
+
+        .bot .bubble:first-child {
+            border-radius: 16px 16px 16px 4px;
+        }
+
+        .user .bubble {
+            background-color: #632617;
+            color: #FFFFFF;
+            border-radius: 16px 16px 4px 16px;
+        }
+
+        /* Nova regra para os botões de ação do Chatbot */
+        .btn-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #E5A93C;
+            color: #632617;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.2s, color 0.2s;
+            border: 1px solid #d4962b;
+        }
+
+        .btn-link:hover {
+            background-color: #632617;
+            color: #FFFFFF;
+        }
+
+        .meta-info {
+            font-size: 11px;
+            color: #7A7A7A;
+            margin-top: 2px;
+        }
+
+        .user .meta-info {
+            text-align: right;
+        }
+
+        .chat-input-area {
+            background-color: #FFFFFF;
+            padding: 15px;
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid #D1D5DB;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid #D1D5DB;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .chat-input:focus {
+            border-color: #632617;
+        }
+
+        .send-btn {
+            background-color: #632617;
+            color: #FFFFFF;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .send-btn:hover {
+            background-color: #4A1B10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-card">
+        <div class="chat-header">
+            <div class="header-info">
+                <div class="header-logo">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 5C55 5 65 15 65 25C65 28 60 30 55 32C62 35 70 42 62 55C55 60 45 60 38 55C30 42 38 35 45 32C40 30 35 28 35 25C35 15 45 5 50 5Z" fill="#632617"/>
+                        <path d="M30 50C35 58 45 65 50 65C55 65 65 58 70 50C55 52 45 52 30 50Z" fill="#632617"/>
+                    </svg>
+                </div>
+                <div class="header-title">Baratie Grand Line</div>
+            </div>
+            <div class="header-options">
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message-row bot">
+                <div class="avatar bot"></div>
+                <div class="bubble-container">
+                    <div class="bubble">Olá! Tudo bem?<br>Agradecemos por entrar em contato com a Equipe de Atendimento Baratie Grand Line</div>
+                    <div class="bubble">Pode me dizer seu nome?</div>
+                    <div class="meta-info">Baratie Grand Line <span class="time-stamp">11:15</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="userInput" placeholder="Digite sua mensagem..." autocomplete="off">
+            <button class="send-btn" id="sendBtn">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+
+        let chatState = {
+            step: 'name',
+            userName: ''
+        };
+
+        function getCurrentTime() {
+            const now = new Date();
+            return now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+        }
+
+        document.querySelectorAll('.time-stamp').forEach(el => el.textContent = getCurrentTime());
+
+        function appendUserMessage(text) {
+            const time = getCurrentTime();
+            const html = `
+                <div class="message-row user">
+                    <div class="bubble-container">
+                        <div class="bubble">${text}</div>
+                        <div class="meta-info">${time}</div>
+                    </div>
+                    <div class="avatar user"></div>
+                </div>
+            `;
+            chatMessages.insertAdjacentHTML('beforeend', html);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function appendBotMessages(bubbles) {
+            const time = getCurrentTime();
+            let bubblesHtml = bubbles.map(b => `<div class="bubble">${b}</div>`).join('');
+            
+            const html = `
+                <div class="message-row bot">
+                    <div class="avatar bot"></div>
+                    <div class="bubble-container">
+                        ${bubblesHtml}
+                        <div class="meta-info">Baratie Grand Line ${time}</div>
+                    </div>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                chatMessages.insertAdjacentHTML('beforeend', html);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 800);
+        }
+
+        function extractName(text) {
+            const lower = text.toLowerCase();
+            if (lower.includes('meu nome e ')) return text.substring(lower.indexOf('meu nome e ') + 11).trim();
+            if (lower.includes('meu nome é ')) return text.substring(lower.indexOf('meu nome é ') + 11).trim();
+            if (lower.includes('sou o ')) return text.substring(lower.indexOf('sou o ') + 6).trim();
+            if (lower.includes('sou a ')) return text.substring(lower.indexOf('sou a ') + 6).trim();
+            if (lower.includes('me chamo ')) return text.substring(lower.indexOf('me chamo ') + 9).trim();
+            return text;
+        }
+
+        function processBotResponse(message) {
+            const cleanMessage = message.trim();
+            if (!cleanMessage) return;
+
+            appendUserMessage(cleanMessage);
+            userInput.value = '';
+
+            if (chatState.step === 'name') {
+                chatState.userName = extractName(cleanMessage);
+                chatState.step = 'menu';
+                appendBotMessages([
+                    `Prazer em te conhecer, ${chatState.userName}!`,
+                    `Como posso te ajudar hoje?<br><br>1 - Ver Cardápio<br>2 - Fazer Reserva<br>3 - Horários de Funcionamento`
+                ]);
+                return;
+            }
+
+            if (chatState.step === 'menu') {
+                const choice = cleanMessage.toLowerCase();
+                
+                if (choice.includes('1') || choice.includes('cardapio') || choice.includes('cardápio')) {
+                    appendBotMessages([
+                        `O nosso Cardápio Digital está pronto para você! Clique no botão abaixo para conferir os nossos pratos do mar e bebidas especiais:<br><a href="cardapio.html" class="btn-link"><i class="fa-solid fa-utensils"></i> Acessar Cardápio</a>`
+                    ]);
+                } else if (choice.includes('2') || choice.includes('reserva')) {
+                    appendBotMessages([
+                        `Para realizar uma reserva e garantir o melhor lugar com a nossa tripulação, clique no botão abaixo:<br><a href="reservas.html" class="btn-link"><i class="fa-solid fa-calendar-days"></i> Ir para Reservas</a>`
+                    ]);
+                } else if (choice.includes('3') || choice.includes('horario') || choice.includes('horário') || choice.includes('funcionamento')) {
+                    appendBotMessages([
+                        `Nosso horário de funcionamento na Grand Line é:<br><br>• Seg a Sex: 11:30 às 23:00<br>• Sáb e Dom: 12:00 às 20:00<br><br>Para mais detalhes sobre nossa localização e contatos, clique abaixo:<br><a href="informacoes.html" class="btn-link"><i class="fa-solid fa-circle-info"></i> Mais Informações</a>`
+                    ]);
+                } else {
+                    appendBotMessages([
+                        `Desculpe, não entendi bem. Digite o número ou a opção desejada:<br><br>1 - Ver Cardápio<br>2 - Fazer Reserva<br>3 - Horários de Funcionamento`
+                    ]);
+                }
+            }
+        }
+
+        sendBtn.addEventListener('click', () => processBotResponse(userInput.value));
+        
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                processBotResponse(userInput.value);
+            }
+        });
+    </script>
+</body>
+</html>

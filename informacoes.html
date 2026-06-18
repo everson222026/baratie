@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baratie - Informações</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #632617;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+
+        .title {
+            color: #E5A93C;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .info-card {
+            border: 1.5px solid #E5A93C;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            background-color: transparent;
+        }
+
+        .card-icon {
+            color: #E5A93C;
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .card-content {
+            color: #FFFFFF;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .card-content strong {
+            color: #E5A93C;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 5C55 5 65 15 65 25C65 28 60 30 55 32C62 35 70 42 62 55C55 60 45 60 38 55C30 42 38 35 45 32C40 30 35 28 35 25C35 15 45 5 50 5Z" fill="#E5A93C"/>
+                <path d="M40 35L25 45L42 48Z" fill="#E5A93C"/>
+                <path d="M48 35L33 46L46 47Z" fill="#E5A93C"/>
+                <path d="M30 50C35 58 45 65 50 65C55 65 65 58 70 50C55 52 45 52 30 50Z" fill="#E5A93C"/>
+                <path d="M42 56C45 56 48 58 52 56C55 58 58 56 58 56C55 60 45 60 42 56Z" fill="#632617"/>
+            </svg>
+            <p style="color: #E5A93C; font-size: 18px; letter-spacing: 2px; margin-top: 5px; font-weight: bold;">BARATIE</p>
+            <p style="color: #E5A93C; font-size: 8px; letter-spacing: 1px;">FLOATING RESTAURANT<br>GRAND LINE</p>
+        </div>
+
+        <div class="title">Informações:</div>
+
+        <div class="grid-container">
+            <div class="info-card">
+                <i class="fa-solid fa-location-dot card-icon"></i>
+                <div class="card-content">
+                    <strong>Local:</strong> Rua East Blue, nº125, Maceió-Shopping, Maceió-AL
+                </div>
+            </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-utensils card-icon"></i>
+                <div class="card-content">
+                    <strong>Principais Chefes:</strong> Vinsmoke Sanji, BOB Esponja Calça Quadrada, Tio Do Lamen(TEUCHI), Vegeta (O príncipe Dos Sabores.
+                </div>
+            </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-utensils card-icon"></i>
+                <div class="card-content">
+                    <strong>Reservas:</strong> Para até 20 pessoas
+                </div>
+            </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-file-lines card-icon"></i>
+                <div class="card-content">
+                    <strong>Pratos:</strong> Frutos do mar, carnes bebidas, sobremesas e muito mais!
+                </div>
+            </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-star card-icon"></i>
+                <div class="card-content">
+                    <strong>Avaliação dos Clientes:</strong> 4,8/5 estrelas (mais de 1.500 avaliações)
+                </div>
+            </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-truck card-icon"></i>
+                <div class="card-content">
+                    <strong>Entrega:</strong> Delivery disponível das 12:00 Até 22:00 em toda região de East Blue
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.info-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('strong').innerText;
+                console.log('Clicou em: ' + title);
+            });
+        });
+    </script>
+</body>
+</html>

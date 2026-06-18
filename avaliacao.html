@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baratie - Pesquisa de Satisfação</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #632617;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .question-text {
+            color: #E5A93C;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.4;
+            max-width: 550px;
+            margin-bottom: 40px;
+        }
+
+        .stars-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            direction: ltr;
+        }
+
+        .star {
+            font-size: 32px;
+            color: transparent;
+            -webkit-text-stroke: 1.5px #E5A93C;
+            cursor: pointer;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+        }
+
+        .star.active {
+            color: #E5A93C;
+        }
+
+        .success-message {
+            display: none;
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 30px;
+            background-color: rgba(229, 169, 60, 0.2);
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: 1px solid #E5A93C;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <svg class="logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 5C55 5 65 15 65 25C65 28 60 30 55 32C62 35 70 42 62 55C55 60 45 60 38 55C30 42 38 35 45 32C40 30 35 28 35 25C35 15 45 5 50 5Z" fill="#E5A93C"/>
+                <path d="M40 35L25 45L42 48Z" fill="#E5A93C"/>
+                <path d="M48 35L33 46L46 47Z" fill="#E5A93C"/>
+                <path d="M30 50C35 58 45 65 50 65C55 65 65 58 70 50C55 52 45 52 30 50Z" fill="#E5A93C"/>
+                <path d="M42 56C45 56 48 58 52 56C55 58 58 56 58 56C55 60 45 60 42 56Z" fill="#632617"/>
+            </svg>
+            <h1 style="color: #E5A93C; font-size: 28px; letter-spacing: 2px; margin-top: 10px; margin-bottom: 2px;">BARATIE</h1>
+            <p style="color: #E5A93C; font-size: 11px; letter-spacing: 1px; font-weight: bold;">FLOATING RESTAURANT<br>GRAND LINE</p>
+        </div>
+
+        <div class="question-text">
+            Qual é o seu nível de satisfação com o nosso restaurante? Quão satisfeito você está com a experiência geral?
+        </div>
+
+        <div class="stars-container" id="starsContainer">
+            <i class="fa-solid fa-star star" data-value="1"></i>
+            <i class="fa-solid fa-star star" data-value="2"></i>
+            <i class="fa-solid fa-star star" data-value="3"></i>
+            <i class="fa-solid fa-star star" data-value="4"></i>
+            <i class="fa-solid fa-star star" data-value="5"></i>
+            <i class="fa-solid fa-star star" data-value="6"></i>
+            <i class="fa-solid fa-star star" data-value="7"></i>
+            <i class="fa-solid fa-star star" data-value="8"></i>
+            <i class="fa-solid fa-star star" data-value="9"></i>
+            <i class="fa-solid fa-star star" data-value="10"></i>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            Obrigado! Sua avaliação de <span id="ratingValue">0</span> estrelas foi enviada com sucesso.
+        </div>
+    </div>
+
+    <script>
+        const stars = document.querySelectorAll('.star');
+        const successMessage = document.getElementById('successMessage');
+        const ratingValue = document.getElementById('ratingValue');
+        let canVote = true;
+
+        stars.forEach(star => {
+            star.addEventListener('mouseover', function() {
+                if (!canVote) return;
+                const currentVal = parseInt(this.getAttribute('data-value'));
+                highlightStars(currentVal);
+            });
+
+            star.addEventListener('mouseout', function() {
+                if (!canVote) return;
+                resetStars();
+            });
+
+            star.addEventListener('click', function() {
+                if (!canVote) return;
+                const finalRating = parseInt(this.getAttribute('data-value'));
+                
+                canVote = false;
+                highlightStars(finalRating);
+                
+                ratingValue.textContent = finalRating;
+                successMessage.style.display = 'block';
+                
+                sendDataToBackend(finalRating);
+            });
+        });
+
+        function highlightStars(count) {
+            stars.forEach(star => {
+                const starVal = parseInt(star.getAttribute('data-value'));
+                if (starVal <= count) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        function resetStars() {
+            stars.forEach(star => {
+                star.classList.remove('active');
+            });
+        }
+
+        function sendDataToBackend(rating) {
+            console.log('Avaliação enviada:', rating);
+        }
+    </script>
+</body>
+</html>

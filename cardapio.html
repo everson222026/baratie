@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baratie - Menu Digital</title>
+</head>
+<body>
+
+    <div class="header-banner">
+        <h1>RESTAURANTE BARATIE</h1>
+        <p>Os melhores sabores de todos os mares</p>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczOdfawJNeSMZxANkihD8GOl4X3Y1tUyJgdA1sL7e8NM2g-WF--869SwFww3ANZEmayBdJW4N9DsQpKPOH_ywzbw85lsqwTamIbgvEP-5wFkse_rw29MQVUWzUo-E8cnC5fPMsMN_WhWkbrIEqNKHgKz=w676-h369-s-no-gm?authuser=0" class="logoBaratie">
+    </div>
+
+    <div class="container">
+        
+        <div class="filtro-wrapper">
+            <div class="filtro-container">
+                <button class="btn-filtro ativo" onclick="filtrarCategoria('todos')">Todos</button>
+                <button class="btn-filtro" onclick="filtrarCategoria('lancamentos')">Lançamentos</button>
+                <button class="btn-filtro" onclick="filtrarCategoria('entradas')">Entradas</button>
+                <button class="btn-filtro" onclick="filtrarCategoria('principais')">Pratos Principais</button>
+                <button class="btn-filtro" onclick="filtrarCategoria('sobremesas')">Sobremesas</button>
+                <button class="btn-filtro" onclick="filtrarCategoria('bebidas')">Bebidas</button>
+            </div>
+        </div>
+
+        <div class="secao-cardapio" data-categoria="lancamentos">
+            <h2 class="section-title">Lançamentos</h2>
+            <div class="grid-produtos">
+                
+                <div class="card-prato" onclick="selecionarPrato(this)" data-id="1" data-nome="Filé do Perna Negra" data-chefe="Chef Sanji" data-preco="125.00" data-descricao="Filé mignon grelhado na manteiga de sálvia com risoto de parmesão." data-avaliacao="⭐⭐⭐⭐⭐ (4.9)">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300" alt="Filé Mignon">
+                    <div class="info-prato">
+                        <div>
+                            <div class="badge-destaque">CHEF SANJI</div>
+                            <div class="nome-prato">Filé do Perna Negra</div>
+                            <div class="descricao-prato">Filé mignon grelhado na manteiga de sálvia com risoto de parmesão.</div>
+                        </div>
+                        <div class="preco-prato">฿ 125,00</div>
+                    </div>
+                </div>
+
+                <div class="card-prato" onclick="selecionarPrato(this)" data-id="2" data-nome="Hamburger de siri" data-chefe="Chef Bob Esponja" data-preco="99.00" data-descricao="Um hambúrguer suculento com pão de gergelim, picles crocantes e uma carne grelhada feita com uma fórmula secreta irresistível." data-avaliacao="⭐⭐⭐⭐⭐ (5.0)">
+                    <img src="https://s2-receitas.glbimg.com/tZAimKU5BICFNYqeGhRg37dYJPk=/1242x0/filters:format(jpeg)/http://g.glbimg.com/og/gs/gsat5/f/thumbs/materia/2017/01/30/food-truck-hamburguer-1242.jpg" alt="hamburger de siri">
+                    <div class="info-prato">
+                        <div>
+                            <div class="badge-destaque">CHEF BOB ESPONJA</div>
+                            <div class="nome-prato">Hamburger de siri</div>
+                            <div class="descricao-prato">Um hambúrguer suculento com pão de gergelim, picles crocantes e uma carne grelhada feita com uma fórmula secreta irresistível.</div>
+                        </div>
+                        <div class="preco-prato">฿ 99,00</div>
+                    </div>
+                </div>
+
+                <div class="card-prato" onclick="selecionarPrato(this)" data-id="3" data-nome="Rámen Lámen" data-chefe="Chef Teuchi" data-preco="92.00" data-descricao="O Lamen do Ichiraku é uma tigela reconfortante e tradicional de Miso Chashu Ramen com ingredientes que alimentam a alma." data-avaliacao="⭐⭐⭐⭐⭐ (4.8)">
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=300" alt="Rámen">
+                    <div class="info-prato">
+                        <div>
+                            <div class="badge-destaque">CHEF TEUCHI</div>
+                            <div class="nome-prato">Rámen Lámen</div>
+                            <div class="descricao-prato">O Lamen do Ichiraku é uma tigela reconfortante e tradicional de Miso Chashu Ramen com ingredientes que alimentam a alma.</div>
+                        </div>
+                        <div class="preco-prato">฿ 92,00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="secao-cardapio" data-categoria="entradas">
+            <h2 class="section-title">Entradas</h2>
+            <div class="grid-produtos">
+                <div class="card-prato" onclick="selecionarPrato(this)" data-id="4" data-nome="Sopa de Prata do Zeff" data-chefe="Chef Sanji" data-preco="45.00" data-descricao="Caldo reconfortante de frutos do mar vindos do North Blue com torradas temperadas da casa." data-avaliacao="⭐⭐⭐⭐ (4.5)">
+                    <img src="https://thfvnext.bing.com/th/id/OIP.efDpI2UhSHwvi7AQHPMDxAHaE8?w=220&h=180&c=7&r=0&o=7&cb=thfvnextfalcon2&dpr=1.1&pid=1.7&rm=3" alt="Sopa de Frutos do Mar">
+                    <div class="info-prato">
+                        <div>
+                            <div class="badge-destaque">CHEF SANJI</div>
+                            <div class="nome-prato">Sopa de Prata do Zeff</div>
+                            <div class="descricao-prato">Caldo reconfortante de frutos do mar vindos do North Blue com torradas temperadas da casa.</div>
+                        </div>
+                        <div class="preco-prato">฿ 45,00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="secao-cardapio" data-categoria="principais">
+            <h2 class="section-title">Pratos Principais</h2>
+            <div class="grid-produtos">
+                <div class="card-prato" onclick="selecionarPrato(this)" data-id="5" data-nome="Moqueca All Blue" data-chefe="Chef Sanji" data-preco="146.00" data-descricao="Mix de peixes frescos e camarão cozidos no azeite de dendê e leite de coco." data-avaliacao="⭐⭐⭐⭐⭐ (4.9)">
+                    <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=300" alt="Moqueca">
+                    <div class="info-prato">
+                        <div>
+                            <div class="badge-destaque">CHEF SANJI</div>
+                            <div class="nome-prato">Moqueca All Blue</div>
+                            <div class="descricao-prato">Mix de peixes frescos e camarão cozidos no azeite de dendê e leite de coco.</div>
+                        </div>
+                        <div class="preco-prato">฿ 146,00</div>
+                    </div>
+                </div>
+
+                <div class="card-prato" onclick="selecionarPrato(this)" data-id="6" data-nome="Arroz de Marujos" data-chefe="Chef Bob Esponja" data-preco="88.00" data-descricao="Arroz caldoso de lula, polvo e mexilhões finalizado com cheiro verde." data-avaliacao="⭐⭐⭐⭐ (4.6)">
+                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=300" alt="Arroz de Marisco">
+                    <div class="info-prato">
+                        <div>
+                            <div class="badge-destaque">CHEF BOB ESPONJA</div>
+                            <div class="nome-prato">Arroz de Marujos</div>
+                            <div class="descricao-prato">Arroz caldoso de lula, polvo e mexilhões finalizado com cheiro verde.</div>
+                        </div>
+                        <div class="preco-prato">฿ 88,00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="secao-cardapio" data-categoria="sobremesas">
+            <h2 class="section-title">Sobremesas</h2>
+            <div class="grid-produtos">
+                <div class="card-prato" onclick="selecionarPrato(this)" data-id="7" data-nome="Pudim Z" data-chefe="Chef Vegeta" data-preco="92.00" data-descricao="O Pudim da Terra é um doce clássico, de textura ultra-cremosa e sabor tão viciante que foi capaz de decidir o destino do planeta." data-avaliacao="⭐⭐⭐⭐⭐ (5.0)">
+                    <img src="https://nacolher.com/wp-content/uploads/2023/05/pudim-gourmet.jpg" alt="Pudim">
+                    <div class="info-prato">
+                        <div>
+                            <div class="badge-destaque">CHEF VEGETA</div>
+                            <div class="nome-prato">Pudim Z</div>
+                            <div class="descricao-prato">O Pudim da Terra é um doce clássico, de textura ultra-cremosa e sabor tão viciante que foi capaz de decidir o destino do planeta.</div>
+                        </div>
+                        <div class="preco-prato">฿ 92,00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="secao-cardapio" data-categoria="bebidas">
+            <h2 class="section-title">Bebidas</h2>
+            <div class="grid-produtos">
+                <div class="card-prato" onclick="selecionarPrato(this)" data-id="8" data-nome="Sake Refrescante do Leste" data-chefe="Chef Vegeta" data-preco="25.00" data-descricao="Bebida tradicional fermentada servida estupidamente gelada com toques cítricos." data-avaliacao="⭐⭐⭐⭐ (4.7)">
+                    <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=300" alt="Drinks">
+                    <div class="info-prato">
+                        <div>
+                            <div class="badge-destaque">CHEF VEGETA</div>
+                            <div class="nome-prato">Sake Refrescante do Leste</div>
+                            <div class="descricao-prato">Bebida tradicional fermentada servida estupidamente gelada com toques cítricos.</div>
+                        </div>
+                        <div class="preco-prato">฿ 25,00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="modalPrato" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="fecharModal()">&times;</span>
+            <div class="modal-body">
+                <img id="modalImagem" src="" alt="Imagem do Prato">
+                <div class="modal-info">
+                    <div id="modalChefe" class="badge-destaque"></div>
+                    <h2 id="modalNome"></h2>
+                    <div id="modalAvaliacao" class="modal-avaliacao"></div>
+                    <p id="modalDescricao"></p>
+                    <div class="modal-footer-compra">
+                        <div id="modalPreco" class="preco-prato" style="font-size: 1.5rem;"></div>
+                        <div class="controle-quantidade">
+                            <button onclick="alterarQtdModal(-1)">-</button>
+                            <span id="qtdModal">1</span>
+                            <button onclick="alterarQtdModal(1)">+</button>
+                        </div>
+                    </div>
+                    <button class="btn-adicionar-carrinho" onclick="confirmarAdicao()">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BARRA DO IFOOD FLUTUANTE INFERIOR -->
+    <div id="barraCarrinho" class="barra-carrinho" onclick="abrirCarrinho()">
+        <div class="barra-carrinho-conteudo">
+            <div class="itens-count"><span id="totalItensBadge">0</span></div>
+            <span class="texto-ver-carrinho">Ver Sacola</span>
+            <span class="preco-total-barra" id="precoTotalBarra">฿ 0,00</span>
+        </div>
+    </div>
+
+    <!-- MODAL LATERAL DO CARRINHO (SACOLA) -->
+    <div id="modalCarrinho" class="modal-carrinho-lateral">
+        <div class="carrinho-lateral-conteudo">
+            <div class="carrinho-header">
+                <h3>Sua Sacola</h3>
+                <span class="fechar-carrinho" onclick="fecharCarrinho()">&times;</span>
+            </div>
+            <div id="carrinhoItens" class="carrinho-itens-lista">
+                <!-- Itens inseridos dinamicamente aqui -->
+            </div>
+            <div class="carrinho-footer">
+                <div class="resumo-valores">
+                    <div class="linha-resumo"><span>Subtotal</span><span id="subtotalCarrinho">฿ 0,00</span></div>
+                    <div class="linha-resumo entrega"><span>Taxa de entrega</span><span>Grátis</span></div>
+                    <hr>
+                    <div class="linha-resumo total"><span>Total</span><span id="totalCarrinho">฿ 0,00</span></div>
+                </div>
+                <button class="btn-finalizar" onclick="alert('Pedido enviado com sucesso para a cozinha do Baratie!')">Escolher forma de pagamento</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="carrossel-container" alt="Chefes">
+        <h2 style="color: #666; text-align: center; margin-bottom: 10px; font-size: 1.2rem;">NOSSOS CHEFES</h2>
+        <div class="carrossel-slides">
+            <div class="slide ativo">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczNeBwvGcDZQ3X8ojwl3KFtOEmlJSdX3-CqE6Tdd_7w8dH6teY93W9xigcBNRtSVWcw-pQtSsp0WIx3su7UtEyGFecToixpvXVLXReXR6x9s8E458HSMATaUqbNr6WTZDR9_YZxOlpeeHg_2p8JV6fjI=w684-h684-s-no-gm?authuser=0" alt="chefe sanji">
+            </div>
+            <div class="slide">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczNEPvzsco-b9KqmtpS6g-lEX92d6RbCLe3WbcRinmh_yqGdfjh7_SEWQbjnfOLDr_-Ua1W2zMl94Ax097On217iUOw087RlYQTbxafS-LoiKUi9jLhnYiPkKuHA-V7sNfffvGJtT_A7r_TIwMkH0OFs=w684-h684-s-no-gm?authuser=0" alt="chef bob esponja">
+            </div>
+            <div class="slide">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOPjATF7gVELwLJ2m6hlFG4OnDcuSqSlnsy5nCROAk6L7DpB6T0GTcgFnJNifSwnrBV-5gdl9qU_SscZvzBHG9acyEj772-xsjRcWvWJ3K6oBh1KUR-M5NIuPN6hRMsG0toQ-yTpC5o35SrNePFq20J=w684-h684-s-no-gm?authuser=0" alt="chef teuchi">
+            </div>
+            <div class="slide">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczNdPc2L5QzE0oe5vQi0-AoHWtNUyuURhexJW6kY7kTzCTChI8dn_y2qFMwUiHLnlqlGMixKmOiEYRlok9JOLL0ZPwMTLY7h09ex3TMKqaT018hye--LYyH_-X9wGCrN9G0RzFToRZ-wsv8m9ypNu8LD=w684-h684-s-no-gm?authuser=0text=chefe+vegeta" alt="chefe vegeta">
+            </div>
+        </div>
+
+        <button class="btn anterior" onclick="mudarSlide(-1); event.stopPropagation();">❮</button>
+        <button class="btn proximo" onclick="mudarSlide(1); event.stopPropagation();">❯</button>
+    </div>
+
+<script>
+    // ESTADO GLOBAL DO CARRINHO
+    let carrinho = [];
+    let pratoSelecionadoAtual = null;
+    let qtdModalAtual = 1;
+
+    function selecionarPrato(elemento) {
+        pratoSelecionadoAtual = {
+            id: elemento.getAttribute('data-id'),
+            nome: elemento.getAttribute('data-nome'),
+            chefe: elemento.getAttribute('data-chefe'),
+            preco: parseFloat(elemento.getAttribute('data-preco')),
+            descricao: elemento.getAttribute('data-descricao'),
+            avaliacao: elemento.getAttribute('data-avaliacao'),
+            imagemSrc: elemento.querySelector('img').src
+        };
+
+        qtdModalAtual = 1;
+        document.getElementById('qtdModal').innerText = qtdModalAtual;
+       
+        document.getElementById('modalNome').innerText = pratoSelecionadoAtual.nome;
+        document.getElementById('modalChefe').innerText = pratoSelecionadoAtual.chefe.toUpperCase();
+        document.getElementById('modalPreco').innerText = "฿ " + pratoSelecionadoAtual.preco.toFixed(2).replace('.', ',');
+        document.getElementById('modalDescricao').innerText = pratoSelecionadoAtual.descricao;
+        document.getElementById('modalAvaliacao').innerText = pratoSelecionadoAtual.avaliacao;
+        document.getElementById('modalImagem').src = pratoSelecionadoAtual.imagemSrc;
+
+        document.getElementById('modalPrato').style.display = 'flex';
+    }
+
+    function alterarQtdModal(valor) {
+        qtdModalAtual += valor;
+        if(qtdModalAtual < 1) qtdModalAtual = 1;
+        document.getElementById('qtdModal').innerText = qtdModalAtual;
+    }
+
+    function confirmarAdicao() {
+        const itemExistente = carrinho.find(item => item.id === pratoSelecionadoAtual.id);
+        
+        if (itemExistente) {
+            itemExistente.quantidade += qtdModalAtual;
+        } else {
+            carrinho.push({
+                ...pratoSelecionadoAtual,
+                quantidade: qtdModalAtual
+            });
+        }
+        
+        fecharModal();
+        atualizarInterfaceCarrinho();
+    }
+
+    function alterarQuantidadeCarrinho(id, valor) {
+        const item = carrinho.find(item => item.id === id);
+        if (item) {
+            item.quantidade += valor;
+            if (item.quantidade <= 0) {
+                carrinho = carrinho.filter(item => item.id !== id);
+            }
+            atualizarInterfaceCarrinho();
+        }
+    }
+
+    function atualizarInterfaceCarrinho() {
+        const totalItens = carrinho.reduce((acc, item) => acc + item.quantidade, 0);
+        const valorTotal = carrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
+
+        // Atualizar barra inferior iFood
+        const barra = document.getElementById('barraCarrinho');
+        if (totalItens > 0) {
+            barra.classList.add('visivel');
+            document.getElementById('totalItensBadge').innerText = totalItens;
+            document.getElementById('precoTotalBarra').innerText = "฿ " + valorTotal.toFixed(2).replace('.', ',');
+        } else {
+            barra.classList.remove('visivel');
+            fecharCarrinho();
+        }
+
+        // Atualizar lista interna do carrinho lateral
+        const listaItensHTML = document.getElementById('carrinhoItens');
+        listaItensHTML.innerHTML = '';
+
+        carrinho.forEach(item => {
+            const totalItem = item.preco * item.quantidade;
+            listaItensHTML.innerHTML += `
+                <div class="item-carrinho-linha">
+                    <div class="item-carrinho-info">
+                        <span class="item-carrinho-nome">${item.nome}</span>
+                        <span class="item-carrinho-preco-un">฿ ${totalItem.toFixed(2).replace('.', ',')}</span>
+                    </div>
+                    <div class="controle-quantidade pequena">
+                        <button onclick="alterarQuantidadeCarrinho('${item.id}', -1)">-</button>
+                        <span>${item.quantidade}</span>
+                        <button onclick="alterarQuantidadeCarrinho('${item.id}', 1)">+</button>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Totais do carrinho lateral
+        const valorFormatado = "฿ " + valorTotal.toFixed(2).replace('.', ',');
+        document.getElementById('subtotalCarrinho').innerText = valorFormatado;
+        document.getElementById('totalCarrinho').innerText = valorFormatado;
+    }
+
+    function abrirCarrinho() {
+        document.getElementById('modalCarrinho').classList.add('aberto');
+    }
+
+    function fecharCarrinho() {
+        document.getElementById('modalCarrinho').classList.remove('aberto');
+    }
+  
+    function fecharModal() {
+        document.getElementById('modalPrato').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('modalPrato');
+        const modalC = document.getElementById('modalCarrinho');
+        if (event.target === modal) {
+            fecharModal();
+        }
+        if (event.target === modalC) {
+            fecharCarrinho();
+        }
+    }
+
+    function filtrarCategoria(categoria) {
+        const botoes = document.querySelectorAll('.btn-filtro');
+        botoes.forEach(botao => botao.classList.remove('ativo'));
+        
+        if (event) {
+            event.currentTarget.classList.add('ativo');
+        }
+
+        const secoes = document.querySelectorAll('.secao-cardapio');
+        
+        secoes.forEach(secao => {
+            if (categoria === 'todos' || secao.getAttribute('data-categoria') === categoria) {
+                secao.style.display = 'block';
+            } else {
+                secao.style.display = 'none';
+            }
+        });
+    }
+
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function mostrarSlide(index) {
+        slides[slideIndex].classList.remove('ativo');
+        
+        if (index >= slides.length) {
+            slideIndex = 0;
+        } else if (index < 0) {
+            slideIndex = slides.length - 1;
+        } else {
+            slideIndex = index;
+        }
+        
+        slides[slideIndex].classList.add('ativo');
+    }
+
+    function mudarSlide(direcao) {
+        mostrarSlide(slideIndex + direcao);
+    }
+
+    if(slides.length > 0) {
+        slides[0].classList.add('ativo');
+    }
+
+    setInterval(function() {
+        mudarSlide(1);
+    }, 3000);
+</script>
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fcf9f2;
+            color: #333;
+            padding-bottom: 80px; /* Espaço para a barra flutuante */
+        }
+
+        .header-banner {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://lh3.googleusercontent.com/pw/AP1GczOnZK5hh-RVohImmH7UjjT3K7eHdBDnVUW0IlB8U8-zIbh-ELeD0IJwiBl6wUIqSRzpWYfaDfTS07p06EQ3QOyb4ZLlHWDGSu-ap4MeVku7xghkDYbbFy_z_RtmkNyf0Hgd9lzMxJRh0igHhLO9_2We=w1024-h434-s-no-gm?authuser=0') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header-banner h1 {
+            font-size: 2.5rem;
+            color: #e5e5e5;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .filtro-wrapper {
+            width: 100%;
+            margin: 30px 0 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .filtro-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px;
+            scroll-behavior: smooth;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .filtro-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .filtro-container::-webkit-scrollbar-thumb {
+            background: #b58328;
+            border-radius: 10px;
+        }
+
+        .btn-filtro {
+            background-color: #f4edd9;
+            color: #555;
+            border: 1px solid #e1d6b8;
+            padding: 10px 22px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .btn-filtro:hover {
+            background-color: #b58328;
+            color: white;
+            border-color: #b58328;
+            transform: translateY(-2px);
+        }
+
+        .btn-filtro.ativo {
+            background-color: #7a1f1d;
+            color: white;
+            border-color: #7a1f1d;
+            box-shadow: 0 4px 8px rgba(122, 31, 29, 0.3);
+        }
+
+        .secao-cardapio {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 1.5rem;
+            color: #b58328;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: #b58328;
+            margin: 8px auto 0;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card-prato {
+            background-color: #f4edd9;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            padding: 15px;
+            gap: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e1d6b8;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card-prato:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .card-prato img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .info-prato {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        .nome-prato {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c2c2c;
+        }
+
+        .descricao-prato {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 5px 0;
+            line-height: 1.3;
+        }
+
+        .preco-prato {
+            font-size: 1.1rem;
+            color: #b58328;
+            font-weight: bold;
+        }
+
+        .badge-destaque {
+            background-color: #7a1f1d;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            width: fit-content;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .logoBaratie {
+            width: 500px;
+            height: 500px;
+        }
+
+        .carrossel-container {
+            position: relative;
+            max-width: 300px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            padding: 10px;
+            background: #f4edd9;
+            border: 1px solid #e1d6b8;
+        }
+
+        .carrossel-slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+        }
+
+        .slide.ativo {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .btn {
+            position: absolute;
+            top: 55%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .anterior { left: 15px; }
+        .proximo { right: 15px; }
+
+        /* MODAL DE PRODUTO */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.6); 
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-content {
+            background-color: #fcf9f2;
+            border: 2px solid #b58328;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 550px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            animation: modalFade 0.3s ease;
+        }
+
+        @keyframes modalFade {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #7a1f1d;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .modal-body img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e1d6b8;
+        }
+
+        .modal-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .modal-info h2 {
+            color: #2c2c2c;
+            font-size: 1.6rem;
+        }
+
+        .modal-avaliacao {
+            font-size: 0.95rem;
+            color: #b58328;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .modal-info p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .modal-footer-compra {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            border-top: 1px dashed #e1d6b8;
+            padding-top: 15px;
+        }
+
+        /* CONTROLES DE QUANTIDADE (ESTILO IFOOD) */
+        .controle-quantidade {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e1d6b8;
+            border-radius: 8px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .controle-quantidade button {
+            background: none;
+            border: none;
+            width: 35px;
+            height: 35px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #7a1f1d;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .controle-quantidade button:hover {
+            background-color: #f4edd9;
+        }
+
+        .controle-quantidade span {
+            padding: 0 15px;
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .controle-quantidade.pequena button {
+            width: 28px;
+            height: 28px;
+            font-size: 1rem;
+        }
+        .controle-quantidade.pequena span {
+            padding: 0 8px;
+            min-width: 25px;
+        }
+
+        .btn-adicionar-carrinho {
+            background-color: #7a1f1d;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(122, 31, 29, 0.2);
+            transition: background 0.2s;
+        }
+
+        .btn-adicionar-carrinho:hover {
+            background-color: #5c1614;
+        }
+
+        /* BARRA DO IFOOD FLUTUANTE */
+        .barra-carrinho {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 550px;
+            background-color: #7a1f1d;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            z-index: 1500;
+            cursor: pointer;
+            transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .barra-carrinho.visivel {
+            bottom: 20px;
+        }
+
+        .barra-carrinho-conteudo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .itens-count {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .texto-ver-carrinho {
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* MODAL LATERAL SACONA / CARRINHO */
+        .modal-carrinho-lateral {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2500;
+            transition: right 0s;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .modal-carrinho-lateral.aberto {
+            right: 0;
+        }
+
+        .carrinho-lateral-conteudo {
+            width: 100%;
+            max-width: 420px;
+            height: 100%;
+            background-color: #fcf9f2;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            animation: slideInRight 0.3s ease;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        .carrinho-header {
+            padding: 20px;
+            border-bottom: 1px solid #e1d6b8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f4edd9;
+        }
+
+        .carrinho-header h3 {
+            color: #7a1f1d;
+        }
+
+        .fechar-carrinho {
+            font-size: 30px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .carrinho-itens-lista {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .item-carrinho-linha {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e1d6b8;
+        }
+
+        .item-carrinho-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .item-carrinho-nome {
+            font-weight: bold;
+            color: #2c2c2c;
+            font-size: 0.95rem;
+        }
+
+        .item-carrinho-preco-un {
+            color: #b58328;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .carrinho-footer {
+            padding: 20px;
+            background-color: #f4edd9;
+            border-top: 1px solid #e1d6b8;
+        }
+
+        .resumo-valores {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .linha-resumo {
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .linha-resumo.entrega span:last-child {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .linha-resumo.total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            margin-top: 5px;
+        }
+
+        .carrinho-footer hr {
+            border: 0;
+            border-top: 1px solid #e1d6b8;
+            margin: 5px 0;
+        }
+
+        .btn-finalizar {
+            width: 100%;
+            background-color: #7a1f1d;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-finalizar:hover {
+            background-color: #5c1614;
+        }
+
+        @media (max-width: 768px) {
+            .filtro-container {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</body>
+</html>
