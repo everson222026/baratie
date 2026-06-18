@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baratie - Reserva de Mesa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #d9d9d9;
+            color: #333;
+        }
+
+        .banner-superior {
+            width: 100%;
+            height: 140px;
+            background-color: #4a120e;
+            position: relative;
+        }
+
+        .container-reserva {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .logo-box {
+            width: 70px;
+            height: 70px;
+            background-color: #611c18;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: -35px;
+            left: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo-box img {
+            width: 80%;
+            height: auto;
+        }
+
+        .info-restaurante {
+            padding-top: 50px;
+            margin-bottom: 25px;
+        }
+
+        .info-restaurante h1 {
+            font-size: 1.6rem;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .info-restaurante p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 4px;
+        }
+
+        .card-info-reserva {
+            background-color: #e6dfdf;
+            border: 1px solid #9c8080;
+            border-radius: 14px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .icon-wrapper {
+            background-color: #4a120e;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .textos-card h2 {
+            font-size: 1rem;
+            color: #111;
+            margin-bottom: 2px;
+        }
+
+        .textos-card p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .divisor {
+            border: 0;
+            border-top: 1px solid #b3adad;
+            margin: 25px 0;
+            width: 80%;
+        }
+
+        /* Inputs estilizados como botões do Figma */
+        .input-wrapper {
+            background-color: #e6dfdf;
+            border: 1px solid #9c8080;
+            border-radius: 14px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        .input-wrapper:hover {
+            background-color: #ded6d6;
+        }
+
+        .input-corpo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .input-corpo i {
+            font-size: 1.4rem;
+            color: #4a120e;
+            width: 30px;
+            text-align: center;
+        }
+
+        .input-textos {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .input-textos label {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 2px;
+        }
+
+        .input-textos span {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        /* Select customizado para sumir com as bordas e ocupar o espaço correto */
+        .select-custom {
+            font-size: 0.85rem;
+            color: #555;
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        /* Input de data escondido, mas acessível via JS */
+        #dataReserva {
+            position: absolute;
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+        }
+
+        .seta-down {
+            color: #4a120e;
+            font-size: 1.2rem;
+            pointer-events: none; /* Deixa o clique passar para o wrapper */
+        }
+
+        .btn-reservar {
+            width: 100%;
+            background-color: #4a120e;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+
+        .btn-reservar:hover {
+            background-color: #330c0a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner-superior"></div>
+
+    <div class="container-reserva">
+        
+        <div class="logo-box">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczOdfawJNeSMZxANkihD8GOl4X3Y1tUyJgdA1sL7e8NM2g-WF--869SwFww3ANZEmayBdJW4N9DsQpKPOH_ywzbw85lsqwTamIbgvEP-5wFkse_rw29MQVUWzUo-E8cnC5fPMsMN_WhWkbrIEqNKHgKz=w676-h369-s-no-gm?authuser=0" alt="Logo">
+        </div>
+
+        <div class="info-restaurante">
+            <h1>Baratie Grand Line</h1>
+            <p>East Blue . Maceió</p>
+        </div>
+
+        <div class="card-info-reserva">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div class="textos-card">
+                <h2>Fazer reserva de mesa</h2>
+                <p>Escolha os dados e vá ao restaurante</p>
+            </div>
+        </div>
+
+        <hr class="divisor">
+
+        <form id="formReserva" onsubmit="processarReserva(event)">
+            
+            <!-- BOTÃO 1: Calendário (Garante abertura em qualquer parte do clique) -->
+            <div class="input-wrapper" onclick="abrirCalendario()">
+                <div class="input-corpo">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <div class="input-textos">
+                        <label>Dia da reserva</label>
+                        <span id="labelData">Selecione</span>
+                    </div>
+                </div>
+                <div class="seta-down"><i class="fa-solid fa-chevron-down"></i></div>
+                <!-- Input real de data escondido aqui -->
+                <input type="date" id="dataReserva" required onchange="atualizarDataLabel(this.value)">
+            </div>
+
+            <!-- BOTÃO 2: Quantidade de pessoas (Arrumado e funcional) -->
+            <div class="input-wrapper" onclick="abrirSelect()">
+                <div class="input-corpo">
+                    <i class="fa-solid fa-users"></i>
+                    <div class="input-textos">
+                        <label>Quantidade de pessoas</label>
+                        <select id="qtdPessoas" class="select-custom" required onclick="event.stopPropagation();">
+                            <option value="" disabled selected>Selecione a quantidade</option>
+                            <option value="2">2 Pessoas</option>
+                            <option value="4">4 Pessoas</option>
+                            <option value="6">6 Pessoas</option>
+                            <option value="8">Mesa grande (Acima de 8)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="seta-down"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+
+            <button type="submit" class="btn-reservar">Confirmar Reserva no Baratie</button>
+        </form>
+
+    </div>
+
+    <script>
+        // Força a abertura do calendário nativo do navegador
+        function abrirCalendario() {
+            const inputData = document.getElementById('dataReserva');
+            try {
+                // Método moderno para abrir o picker nativo via programação
+                inputData.showPicker();
+            } catch (error) {
+                // Fallback para navegadores antigos
+                inputData.click();
+            }
+        }
+
+        // Força o foco/abertura do elemento select ao clicar na caixa externa
+        function abrirSelect() {
+            const select = document.getElementById('qtdPessoas');
+            select.focus();
+            try {
+                select.showPicker();
+            } catch(e) {
+                // Alguns browsers desktop não abrem a lista via JS, mas o foco já ajuda o usuário a clicar diretamente
+            }
+        }
+
+        // Atualiza visualmente o texto da data escolhida
+        function atualizarDataLabel(valor) {
+            if(valor) {
+                const dataFormatada = valor.split('-').reverse().join('/');
+                document.getElementById('labelData').innerText = dataFormatada;
+                document.getElementById('labelData').style.color = "#000";
+            } else {
+                document.getElementById('labelData').innerText = "Selecione";
+            }
+        }
+
+        function processarReserva(event) {
+            event.preventDefault();
+            
+            const data = document.getElementById('dataReserva').value;
+            const pessoas = document.getElementById('qtdPessoas').value;
+            
+            if(!data) {
+                alert("Por favor, selecione o dia da reserva.");
+                return;
+            }
+
+            const dataFormatada = data.split('-').reverse().join('/');
+            alert(`🎉 Reserva Confirmada!\n\n📅 Data: ${dataFormatada}\n👥 Mesa para: ${pessoas} pessoas.\n\nPreparamos os melhores mares para você!`);
+        }
+    </script>
+</body>
+</html>
